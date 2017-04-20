@@ -1,0 +1,56 @@
+/* * * * * * * * * * * * * *
+	PATTERNS
+* * * * * * * * * * * * * */
+
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+html {
+	font-size: 18px;
+	line-height: 1.333rem;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+    font-family: sans-serif;
+    color: $textColorBase;
+	background: $backgroundColor;
+}
+
+small {
+	font-size: 80%;
+}
+
+p {
+	margin: 20px 0;
+}
+
+figure,
+picture {
+	display: inline-block;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+	display: block;
+}
+
+a {
+    color: $linkColor;
+    text-decoration: underline;
+	@include transition(all .3s ease-out);
+
+    &:active,
+    &:hover {
+        outline-width: 0;
+		color: $linkColorHover;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "KurtBox",
+  "version": "1.0.0",
+  "description": "Simple page for design presentation. Just put your images in a box and... done!",
+  "author": "Fabio Lobo <contato@fabiolobo.com.br> (https://www.fabiolobo.com.br)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabiorlobo/KurtBox.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-watch": "^4.3.11",
+    "imagemin-gifsicle": "^5.1.0",
+    "imagemin-guetzli": "^0.1.5",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-svgo": "^5.2.1"
+  }
+}

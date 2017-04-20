@@ -1,0 +1,42 @@
+.content {
+    width: 100%;
+	margin: 0 auto;
+    text-align: center;
+    position: relative;
+    @include transition(all .3s ease-out);
+
+    .menu-open & {
+        padding-left: 250px;
+    }
+}
+
+.image-container {
+    min-width: 320px;
+    margin-top: 30px;
+    padding: 0 10px;
+    line-height: 0;
+    border-top: 1px solid $separatorColor;
+
+    &:first-child {
+        margin-top: 0;
+        border-top: 0;
+    }
+}
+
+.title {
+    display: table;
+    margin: 0 auto 30px auto;
+    padding: 30px 20px 0 20px;
+    font-size: 1rem;
+    line-height: 1.333rem;
+    position: relative;
+
+    .anchor {
+        display: none;
+    }
+}
+
+.image-border {
+    margin: 0 auto;
+    border: 1px solid $borderColor;
+}

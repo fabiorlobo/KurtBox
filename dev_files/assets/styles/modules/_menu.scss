@@ -1,0 +1,120 @@
+.menu {
+    width: 250px;
+    background: $menuBackgroundColor;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    bottom: 0;
+    z-index: 20;
+    @include transition(all .3s ease-out);
+
+    .menu-open & {
+        left: 0;
+    }
+}
+
+.links {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        height: 100vh;
+        overflow: auto;
+    }
+
+    li {
+        border-bottom: 1px solid $borderColor;
+    }
+
+    a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+    .active a {
+        background: $borderColor;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid $backgroundColor;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            @include translateY(-50%);
+        }
+
+        &:hover {
+            color: $menuBackgroundColor;
+        }
+    }
+}
+
+.menu-button {
+    width: 29px;
+    height: 29px;
+    text-indent: -9999px;
+    background: $menuBackgroundColor;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    cursor: pointer;
+    @include transition(all .3s ease-out);
+    @include opacity(.36);
+
+    &:hover {
+        @include opacity(1);
+    }
+
+    &::before,
+    .menu-link,
+    &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        width: 19px;
+        height: 3px;
+        background-color: $backgroundColor;
+        @include transition(all .3s ease-out);
+    }
+
+    &::before {
+        top: 5px;
+        @include transform-origin(0%, 0%);
+    }
+
+    .menu-link {
+        top: 13px;
+        @include transform-origin(0%, 50%);
+    }
+
+    &::after {
+        bottom: 5px;
+        @include transform-origin(0%, 100%);
+    }
+
+    .menu-open & {
+        left: 260px;
+
+        &::before {
+            @include transform(rotate(45deg) scaleX(1.25));
+            left: 6.5px;
+        }
+
+        .menu-link {
+            @include opacity(0);
+            @include scaleX(0);
+        }
+
+        &::after {
+            @include transform(rotate(-45deg) scaleX(1.25));
+            left: 6.5px;
+        }
+    }
+}

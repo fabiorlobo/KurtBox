@@ -1,0 +1,1 @@
+$(".content").anchorific({navigation:".links"}),$(".menu-button").click(function(){$("body").toggleClass("menu-open")}),$('a[href^="#"]').click(function(){var n=$(this).attr("href");return $("html, body").animate({scrollTop:$(n).offset().top},333),!1});
