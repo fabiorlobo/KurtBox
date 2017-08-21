@@ -36,7 +36,7 @@ Optimize GIF with gifsicle, PNG with optipng, SVG with svgo and JPG with guetzli
 
 See `gulpfile.js` for more options.
 
--
+---
 
 **KurtBox**
 
@@ -44,4 +44,4 @@ Created by Fabio Lobo
 contato@fabiolobo.com.br  
 [www.fabiolobo.com.br](https://www.fabiolobo.com.br)  
 
-![Fabio Lobo Logo](https://www.fabiolobo.com.br/wp-content/themes/fl5.0/images/logo.svg)
+[![Fabio Lobo](https://www.fabiolobo.com.br/wp-content/themes/fl5.0/images/logo.svg)](https://www.fabiolobo.com.br)

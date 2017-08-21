@@ -19,7 +19,7 @@ uglify = require('gulp-uglify'),
 
 // Image Optimization
 imagemin = require('gulp-imagemin'),
-guetzli = require('imagemin-gifsicle'),
+gifsicle = require('imagemin-gifsicle'),
 guetzli = require('imagemin-guetzli'),
 optipng = require('imagemin-optipng'),
 svgo = require('imagemin-svgo');
@@ -59,37 +59,65 @@ gulp.task('scripts', scripts);
 IMAGE OPTIMIZATION
 * * * * * * * * * * * * * */
 
-function gifPngSvg() {
-    return gulp.src('./dev_files/optimize_images/**/*.{gif,png,svg}')
-        .pipe(plumber())
-        .pipe(imagemin([
-            imagemin.gifsicle(),
-            imagemin.optipng(),
-            imagemin.svgo()
-        ], {
-            verbose: true
-        }))
-        .pipe(gulp.dest('./job_folder/presentation'));
+// GIF
+
+function gif() {
+  return gulp.src('./dev_files/optimize_images/**/*.gif')
+  .pipe(imagemin([
+		gifsicle()
+	], {
+		verbose: true
+	}))
+  .pipe(gulp.dest('./job_folder/presentation'));
 };
 
-gulp.task('gifPngSvg', gifPngSvg);
+gulp.task('gif', gif);
+
+// JPG
 
 function jpg() {
-    return gulp.src('./dev_files/optimize_images/**/*.{jpg,jpeg}')
-        .pipe(plumber())
-        .pipe(imagemin([
-            guetzli({
-                quality: 88
-            })
-        ], {
-            verbose: true
-        }))
-        .pipe(gulp.dest('./job_folder/presentation'));
+	return gulp.src('./dev_files/optimize_images/**/*.{jpg,jpeg}')
+	.pipe(imagemin([
+		guetzli({
+			quality: 88
+		})
+	], {
+		verbose: true
+	}))
+	.pipe(gulp.dest('./job_folder/presentation'));
 };
 
 gulp.task('jpg', jpg);
 
-gulp.task('images', ['gifPngSvg', 'jpg']);
+// PNG
+
+function png() {
+  return gulp.src('./dev_files/optimize_images/**/*.png')
+  .pipe(imagemin([
+		optipng()
+	], {
+		verbose: true
+	}))
+  .pipe(gulp.dest('./job_folder/presentation'));
+};
+
+gulp.task('png', png);
+
+// SVG
+
+function svg() {
+  return gulp.src('./dev_files/optimize_images/**/*.svg')
+  .pipe(imagemin([
+		svgo()
+	], {
+		verbose: true
+	}))
+  .pipe(gulp.dest('./job_folder/presentation'));
+};
+
+gulp.task('svg', svg);
+
+gulp.task('images', ['gif', 'jpg', 'png', 'svg']);
 
 /* * * * * * * * * * * * * *
 TASK DEFAULT
